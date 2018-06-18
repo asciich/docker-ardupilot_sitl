@@ -1,0 +1,7 @@
+#!/usr/bin/env expect
+
+set timeout 120
+
+spawn sim_vehicle.py -w
+
+expect "APM: EKF2 IMU1 Origin set to GPS"
