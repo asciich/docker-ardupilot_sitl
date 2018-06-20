@@ -3,4 +3,4 @@
 set -e
 
 cd /ardupilot/ArduCopter
-sim_vehicle.py
+sim_vehicle.py -N
