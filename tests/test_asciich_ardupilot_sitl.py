@@ -4,7 +4,7 @@ import pytest
 def container_image():
     return 'asciich/ardupilot_sitl'
 
-class TestAsciichAvrdudeImage(object):
+class TestAsciichArdupilotSitlImage(object):
 
     def test_sim_vehicle_py_in_path(self, docker_container):
         assert docker_container.exists('sim_vehicle.py')
