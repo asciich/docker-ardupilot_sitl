@@ -9,7 +9,7 @@ If the docker option ```--net=host``` is used the default mavproxy ports (14550,
 To simmulate a arducopter vehicle use
 
 ```bash
-docker run --net=host --rm -it asciich/adrupilot_sitl sim_arducopter
+docker run --net=host --rm -it asciich/ardupilot_sitl sim_arducopter
 ```
 
 ## Simulate arduplane
@@ -17,7 +17,7 @@ docker run --net=host --rm -it asciich/adrupilot_sitl sim_arducopter
 To simulate a arduplane vehicle use:
 
 ```bash
-docker run --net=host --rm -it asciich/adrupilot_sitl sim_arduplane
+docker run --net=host --rm -it asciich/ardupilot_sitl sim_arduplane
 ```
 
 ## Test container
