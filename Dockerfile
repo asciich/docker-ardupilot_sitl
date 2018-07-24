@@ -59,4 +59,5 @@ RUN for SCRIPT in $(ls /*.sh) ; do \
     ; done && \
     \
     wipe_sitl_arducopter && \
-    wipe_sitl_arduplane
+    wipe_sitl_arduplane && \
+    mkdir -p /var/log/mavproxy/
