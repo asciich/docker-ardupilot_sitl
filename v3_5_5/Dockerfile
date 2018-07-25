@@ -48,6 +48,22 @@ ENV PATH=/usr/lib/ccache:$PATH
 COPY ./files/wipe_scripts/* /
 COPY ./files/* /
 
+RUN apt-get install -y \
+        libtool \
+        libtool-bin \
+        automake \
+        autoconf \
+        libexpat1-dev
+
+RUN git clone git://github.com/tridge/jsbsim.git
+
+RUN cd jsbsim && \
+    ./autogen.sh --enable-libraries && \
+    make
+
+ENV PATH=$PATH:/jsbsim/src
+
+
 RUN for SCRIPT in $(ls /*.sh) ; do \
         chmod +x ${SCRIPT} && \
         DEST=$(echo $SCRIPT | sed 's#.sh##g') && \
@@ -57,8 +73,8 @@ RUN for SCRIPT in $(ls /*.sh) ; do \
     for SCRIPT in $(ls /*.expect) ; do \
         chmod +x ${SCRIPT} && \
         mv -v ${SCRIPT} /usr/bin/. \
-    ; done && \
-    \
-    wipe_sitl_arducopter && \
+    ; done
+
+RUN wipe_sitl_arducopter && \
     wipe_sitl_arduplane && \
     mkdir -p /var/log/mavproxy/
