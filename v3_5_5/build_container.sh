@@ -2,5 +2,5 @@
 
 set -e
 
-docker build -t asciich/ardupilot_sitl . ${1}
+docker build -t asciich/ardupilot_sitl:3.5.5 . ${1}
 
